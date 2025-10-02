@@ -3,10 +3,11 @@ from discord.ext import commands
 import logging
 from dotenv import load_dotenv
 import os
+import sys
 import json
 
 load_dotenv()
-token = os.getenv('DISCORD_TOKEN')
+token = None #os.getenv('DISCORD_TOKEN')
 
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
 intents = discord.Intents.default()
@@ -83,5 +84,6 @@ if __name__ == '__main__':
     else:
         write_to_json()
 
+    token = sys.argv[1]
+    bot.run(token, log_handler=handler, log_level=logging.DEBUG)
 
-    bot.run(token, log_handler=handler) #, log_level=logging.DEBUG)
