@@ -83,4 +83,5 @@ if __name__ == '__main__':
     else:
         write_to_json()
 
-    bot.run(token, log_handler=handler, log_level=logging.DEBUG)
+
+    bot.run(token, log_handler=handler) #, log_level=logging.DEBUG)
